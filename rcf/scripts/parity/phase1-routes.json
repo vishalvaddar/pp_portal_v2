@@ -1,0 +1,20 @@
+{
+  "routes": [
+    {"method": "POST", "path": "/api/auth/login", "body": {"user_name": "$PARITY_USER", "password": "$PARITY_PASS"}, "public": true},
+    {"method": "GET", "path": "/api/users"},
+    {"method": "GET", "path": "/api/roles"},
+    {"method": "GET", "path": "/api/states"},
+    {"method": "GET", "path": "/api/divisions-by-state/$STATE_ID"},
+    {"method": "GET", "path": "/api/districts-by-division/$DIVISION_ID"},
+    {"method": "GET", "path": "/api/blocks-by-district/$DISTRICT_ID"},
+    {"method": "GET", "path": "/api/clusters-by-block/$BLOCK_ID"},
+    {"method": "GET", "path": "/api/institutes-by-cluster/$CLUSTER_ID"},
+    {"method": "GET", "path": "/api/juris-name/$DISTRICT_ID"},
+    {"method": "GET", "path": "/api/districts/all"},
+    {"method": "GET", "path": "/api/institutes/all"},
+    {"method": "GET", "path": "/api/institutes/search?query=school"},
+    {"method": "POST", "path": "/api/juris-names", "body": {"districtIds": ["$DISTRICT_ID"], "blockIds": [], "instituteIds": []}},
+    {"method": "GET", "path": "/api/system-config/all"},
+    {"method": "GET", "path": "/api/system-config/active"}
+  ]
+}

@@ -1,0 +1,79 @@
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Application data
+/data/
+/uploads/
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Application data
+/data/
+/uploads/
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Java
+*.class
+
+# Local configuration
+application-local.yml
+application-local.yaml
+application-local.properties
+*.temp
+
+# Java
+*.class
+
+# Local configuration
+application-local.yml
+application-local.yaml
+application-local.properties
