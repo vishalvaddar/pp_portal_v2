@@ -1,0 +1,183 @@
+/*
+ * This stylesheet is adapted from your reference UI to ensure
+ * a consistent design across the application.
+*/
+
+/* --- UI Theme Variables (from reference) --- */
+:root {
+  --primary-color: #4a90e2;
+  --primary-color-dark: #3b7fc4;
+  --heading-color: #2d3a4a;
+  --text-primary: #183153;
+  --text-secondary: #374151;
+  --border-color: #d1d5db;
+  --border-light: #e5e7eb;
+  --bg-section: #f9fafb;
+  --bg-page: #f0f4f8; /* A light background for the page */
+  --error-color: #ef4444;
+  --error-bg: #fff5f5;
+}
+
+/* --- Main Layout & Container --- */
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 32px rgba(67, 97, 238, 0.10);
+  border: 1px solid #e0e7ef;
+}
+
+/* --- Header --- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.title {
+  color: var(--heading-color);
+  font-weight: 700;
+  font-size: 2rem;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+}
+
+.backButton {
+  background: transparent;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: 1px solid var(--primary-color);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.backButton:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+/* --- Status Messages (Loading, Error, No Results) --- */
+.loading,
+.error,
+.noResults {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background-color: var(--bg-section);
+  border-radius: 10px;
+}
+
+.error {
+  color: var(--error-color);
+  background-color: var(--error-bg);
+  border: 1px solid var(--error-color);
+}
+
+/* --- Table Styles --- */
+.tableContainer {
+  overflow-x: auto; /* Ensures table is scrollable on small screens */
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.table th,
+.table td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-light);
+  white-space: nowrap;
+}
+
+.table thead {
+  background-color: var(--bg-section);
+}
+
+.table th {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.table tbody tr:hover {
+  background-color: #f3f7fd;
+}
+
+.link {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+  color: var(--primary-color-dark);
+}
+
+/* --- Pagination Controls --- */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-light);
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+.paginationButton {
+  background: #fff;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 10px 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.paginationButton:hover:not(:disabled) {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background-color: #f3f7fd;
+}
+
+.paginationButton:disabled {
+  background: #f1f1f1;
+  color: #9ca3af;
+  cursor: not-allowed;
+  border-color: var(--border-color);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .container {
+    padding: 18px;
+    margin: 20px;
+  }
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .pagination {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

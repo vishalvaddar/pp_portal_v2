@@ -1,0 +1,165 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.headerSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.studentMeta {
+  font-size: 14px;
+  color: #666;
+}
+
+.profileImageContainer {
+  flex-shrink: 0;
+}
+
+.profileImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #007bff;
+}
+
+.errorMessage, .successMessage {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.errorMessage {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.successMessage {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.sectionControls {
+  margin: 20px 0;
+}
+
+.expandAllBtn, .collapseAllBtn {
+  margin-right: 10px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.expandAllBtn:hover, .collapseAllBtn:hover {
+  background-color: #0056b3;
+}
+
+.studentForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formLabel {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.formInput {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.sectionHeader {
+  cursor: pointer;
+  background-color: #e9ecef;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+}
+
+.sectionIcon {
+  margin-right: 10px;
+}
+
+.sectionToggle {
+  font-size: 18px;
+}
+
+.sectionContent {
+  display: none;
+}
+
+.sectionContent.visible {
+  display: block;
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.cancelBtn, .submitButton {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancelBtn {
+  background-color: #dc3545;
+  color: white;
+  margin-right: 10px;
+}
+
+.cancelBtn:hover {
+  background-color: #c82333;
+}
+
+.submitButton {
+  background-color: #28a745;
+  color: white;
+}
+
+.submitButton:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}

@@ -1,0 +1,207 @@
+/* Base Styles */
+.dashboardContainer {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  color: #333;
+}
+
+.header {
+  margin-bottom: 2.5rem;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a365d;
+  margin: 0;
+}
+
+.titleIcon {
+  color: #4299e1;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #4a5568;
+  margin: 0;
+}
+
+/* Features Grid */
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.featureCard {
+  background: white;
+  border-radius: 10px;
+  padding: 1.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  border: 1px solid #e2e8f0;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  border-color: #bee3f8;
+}
+
+.featureIconContainer {
+  background: #ebf8ff;
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.featureIcon {
+  color: #3182ce;
+}
+
+.featureTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem 0;
+  color: #2d3748;
+}
+
+.featureDescription {
+  color: #4a5568;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.5;
+}
+
+.featureArrow {
+  color: #4299e1;
+  font-weight: bold;
+  font-size: 1.25rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.featureCard:hover .featureArrow {
+  opacity: 1;
+}
+
+.featureBadge {
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  background: #4299e1;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Info Section */
+.infoSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.instructionsCard, 
+.tipsCard {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  color: #2d3748;
+}
+
+.sectionIcon {
+  color: #4299e1;
+}
+
+.instructionsList {
+  padding-left: 1.25rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.instructionsList li {
+  margin-bottom: 0.75rem;
+}
+
+.tipsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tipItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.tipBullet {
+  color: #4299e1;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .infoSection {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Blocked Mouse Cursor Logic --- */
+
+.featureCardDisabled {
+  /* This shows the red circle / slashed icon on hover */
+  cursor: not-allowed !important;
+  
+  /* This makes the card ignore clicks but still show the cursor */
+  pointer-events: auto !important;
+}
+
+/* Stop the hover animation and lifting effect for disabled cards */
+.featureCardDisabled:hover {
+  transform: none !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* Ensure the arrow icon doesn't appear on hover when blocked */
+.featureCardDisabled:hover .featureArrow {
+  opacity: 0 !important;
+}

@@ -1,0 +1,188 @@
+/* Container Box */
+.container {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f5f9;
+}
+
+/* Header Elements */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.header h2 {
+  color: #1e3a8a; /* Deep Royal Blue */
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+/* 🔥 IMPROVED: Premium Gradient Action Button (+ New Configuration) */
+.primaryBtn {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); /* Smooth Royal Blue Gradient */
+  color: white;
+  border: 1px solid #1d4ed8;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.primaryBtn:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%); /* Deepens on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+}
+
+.primaryBtn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+/* Table Card Wrapper */
+.tableWrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Premium Tech Blue Header Styling */
+.table thead {
+  background: #2563eb; /* Strong Vibrant Blue */
+}
+
+/* 🎯 IMPROVED: Centered Header Columns */
+.table th {
+  padding: 14px 16px;
+  text-align: center; /* 👈 Centered table header text */
+  color: #ffffff; /* Crisp white text for perfect readability */
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #1d4ed8; /* Clean dark blue bottom border */
+}
+
+/* 🎯 IMPROVED: Centered Data Cells to match the header alignment */
+.table td {
+  padding: 16px;
+  text-align: center; /* 👈 Centered cell text to align with headers */
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+  font-size: 14px;
+}
+
+/* Row Hover State */
+.table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Prevent bottom border on the last item row */
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.center {
+  text-align: center;
+  color: #94a3b8;
+  padding: 32px !important;
+}
+
+/* --- MODERNIZED ACTION BUTTONS & ICONS --- */
+.actionGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 👈 Centers the icons inside the centered cell */
+  gap: 10px; /* Generous breathing room between buttons */
+}
+
+.linkIcon {
+  cursor: pointer;
+  font-size: 14px; /* Scaled down for sleek look */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%; /* Smooth circular shape */
+  border: 1px solid transparent;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); /* Fluid spring animation */
+}
+
+/* 📝 Edit Button Profile */
+.linkIcon[title="Edit"] {
+  color: #2563eb; /* Tech Blue icon */
+  background: #f0f6ff; /* Soft ice-blue backdrop */
+  border-color: #dbeafe;
+}
+.linkIcon[title="Edit"]:hover {
+  color: #ffffff;
+  background: #2563eb; /* Solid blue on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+/* 👥 Copy Button Profile */
+.linkIcon[title="Copy"] {
+  color: #0284c7; /* Ocean Sky Blue icon */
+  background: #f0f9ff; /* Soft sky backdrop */
+  border-color: #e0f2fe;
+}
+.linkIcon[title="Copy"]:hover {
+  color: #ffffff;
+  background: #0284c7; /* Solid sky blue on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+}
+
+/* 🗑️ Delete Button Profile */
+.linkIcon.delete {
+  color: #ef4444; /* Clean coral red icon */
+  background: #fef2f2; /* Soft pink backdrop */
+  border-color: #fee2e2;
+}
+.linkIcon.delete:hover {
+  color: #ffffff;
+  background: #ef4444; /* Solid red on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
+}
+
+/* Click feedback effect for all buttons */
+.linkIcon:active {
+  transform: translateY(0) scale(0.95);
+}
+
+/* Premium Dark Glassmorphism Toast Configuration */
+.customToast {
+  background: rgba(15, 23, 42, 0.9) !important; 
+  color: #ffffff !important;
+  width: 420px !important;
+  max-width: 90vw !important;
+  border-radius: 12px !important;
+  padding: 14px 20px !important;
+  font-size: 14px !important;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  margin-top: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}

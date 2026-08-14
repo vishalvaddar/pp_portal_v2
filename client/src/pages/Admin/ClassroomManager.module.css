@@ -1,0 +1,583 @@
+/* Layout & Headers */
+.fullPageContainer {
+  width: 100%;
+}
+
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.subtitle {
+  color: #666;
+  margin: 5px 0 0 0;
+}
+
+/* Filters & Search */
+.filterBar {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.searchBox {
+  flex: 1;
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  color: #999;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 10px 10px 35px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Tables */
+.tableWrapper {
+  overflow-x: auto;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: white;
+  border: 1px solid #e2e8f0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.thead {
+  background: #f8fafc;
+}
+
+.th {
+  padding: 12px;
+  text-align: left;
+}
+
+.thCenter {
+  padding: 12px;
+  text-align: center;
+}
+
+.tr {
+  border-top: 1px solid #eee;
+}
+
+.td {
+  padding: 5px;
+  font-size: 12px;
+}
+
+.tdBold {
+  padding: 12px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #1e40af;
+}
+
+.tdCenter {
+  padding: 12px;
+  text-align: center;
+}
+
+.emptyState {
+  padding: 30px;
+  text-align: center;
+  color: #64748b;
+}
+
+/* Status Badges & Pills */
+.statusPill {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.statusActive {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.statusInactive {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.badgeRoom {
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+/* Buttons */
+.actionGroup {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.actionBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actionBtn:hover {
+  background: #f1f5f9;
+}
+
+.btnDelete:hover {
+  background: #fee2e2;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.btnPrimary {
+  background: #2563eb;
+  color: white;
+}
+
+.btnPrimary:hover {
+  background: #1d4ed8;
+}
+
+.btnPrimary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btnSecondary {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.btnSecondary:hover {
+  background: #e2e8f0;
+}
+
+.closeBtn {
+  background: #64748b;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.closeBtn:hover {
+  background: #b6bcc2;
+}
+
+/* Modals */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.modalContent {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 900px;
+  max-width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modalContentSmall {
+  width: 600px;
+  max-width: 90%;
+  overflow: visible;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 15px;
+}
+
+.modalHeaderSmall {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modalTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1e40af;
+  margin: 0;
+}
+
+.modalTitleSmall {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Info Cards (View Modal) */
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.infoCard {
+  background: #f8fafc;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  transition: transform 0.2s;
+}
+
+.infoCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.infoCardSpan2 {
+  grid-column: span 2;
+}
+
+.infoCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.infoCardTitle {
+  font-weight: 600;
+  margin: 0;
+}
+
+.infoCardValue {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.link {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Teacher Info Section */
+.teacherInfoBox {
+  background: #f0f9ff;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #bae6fd;
+}
+
+.teacherInfoBoxSimple {
+  background: #f8fafc;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.teacherGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.teacherLabel {
+  color: #64748b;
+  margin: 0 0 5px 0;
+  font-size: 14px;
+}
+
+.teacherValue {
+  margin: 0;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.teacherValueFlex {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Students Section */
+.studentsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.studentsSearchBox {
+  position: relative;
+  width: 300px;
+}
+
+.studentsSearchInput {
+  width: 100%;
+  padding: 8px 10px 8px 35px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+/* Form Styling */
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroupSpan2 {
+  grid-column: span 2;
+}
+
+.formLabel {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+}
+
+.formInput {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.formInput:disabled {
+  background-color: #f1f5f9;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.namePreviewBox {
+  background: #f0f9ff;
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.namePreviewLabel {
+  color: #64748b;
+}
+
+.namePreviewValue {
+  margin-left: 10px;
+  color: #1e40af;
+  font-weight: bold;
+}
+
+.formActions {
+  grid-column: span 2;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* Utilities */
+.textEmerald { color: #10b981; }
+.textBlue { color: #2563eb; }
+.textRed { color: #ef4444; }
+.iconLabel {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Spinner */
+.spinnerContainer {
+  text-align: center;
+  padding: 40px;
+}
+
+.spinner {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #2563eb;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 10px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Pagination Controls --- */
+.paginationContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background-color: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.pageInfo {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.pageInfo strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.paginationControls {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.rowsSelector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pageText {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.rowsSelect {
+  padding: 4px 8px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #1e293b;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+}
+
+.rowsSelect:focus {
+  border-color: #3b82f6;
+}
+
+.pageButtons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pageBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pageBtn:hover:not(:disabled) {
+  background-color: #f1f5f9;
+  color: #1e293b;
+}
+
+.pageBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #f8fafc;
+}

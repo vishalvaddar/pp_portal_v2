@@ -1,0 +1,195 @@
+/* NewApplication.module.css */
+
+/* =================================
+   :ROOT & FONT IMPORT
+   ================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --background-color: #f9fafb;
+  --form-background: #ffffff;
+  --primary-color: #3b82f6;
+  --primary-hover: #2563eb;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --border-color: #d1d5db;
+  --border-focus-color: #3b82f6;
+  --danger-color: #ef4444;
+  --border-radius: 0.5rem; /* 8px */
+  --box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* =================================
+   MAIN CONTAINER & LAYOUT
+   ================================= */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  font-family: 'Inter', sans-serif;
+  color: var(--text-primary);
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.formContent {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  background: var(--form-background);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--box-shadow);
+}
+
+/* =================================
+   FORM SECTIONS
+   ================================= */
+.formSection {
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--primary-color);
+}
+
+.sectionIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.sectionDivider {
+  border: 0;
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 2.5rem 0;
+}
+
+/* =================================
+   FIELD GROUPS & LABELS
+   ================================= */
+.fieldGroup {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+}
+
+.label, label {
+  font-size: 0.875rem; /* 14px */
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.required {
+  color: var(--danger-color);
+  margin-left: 0.25rem;
+}
+
+/* =================================
+   INPUTS, SELECTS, TEXTAREAS
+   ================================= */
+.formField input[type="text"],
+.formField input[type="date"],
+.formField input[type="number"],
+.formField select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  background-color: #fff;
+  color: var(--text-primary);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.formField input:focus,
+.formField select:focus {
+  outline: none;
+  border-color: var(--border-focus-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* =================================
+   ERROR & SUBMIT
+   ================================= */
+.errorContainer {
+  background-color: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+}
+
+.submitButton {
+  display: block;
+  max-width: 400px;
+  width: 100%; 
+  margin-left: auto; 
+  margin-right: auto;
+  padding: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 2rem;
+}
+
+.submitButton:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Submit button animation states */
+.submitButton.animated {
+  transition: all 0.5s ease-in-out;
+}
+.submitButton.state-1 {
+  background-color: #fbbf24;
+}
+.submitButton.state-2 {
+  background-color: var(--secondary-accent);
+}
+
+/* =================================
+   RESPONSIVENESS
+   ================================= */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  .formContent {
+    padding: 1.5rem;
+  }
+  .fieldGroup {
+    grid-template-columns: 1fr;
+  }
+}
+

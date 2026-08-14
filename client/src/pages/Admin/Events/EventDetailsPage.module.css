@@ -1,0 +1,835 @@
+/* --- Global Styles --- */
+.pageWrapper {
+  background: #f6f9fc;
+  min-height: 100vh;
+  padding: 30px;
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* --- Top Bar & Navigation --- */
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.backLink {
+  text-decoration: none;
+  color: #5b7db1;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.backLink:hover {
+  color: #355f9a;
+}
+
+.editButton {
+  background: #5b7db1;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(91, 125, 177, 0.2);
+  transition: all 0.3s ease;
+}
+
+.editButton:hover {
+  background: #4a6fa5;
+  transform: translateY(-2px);
+}
+
+/* --- Clean View Content Layout --- */
+.viewContent {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Hero Section --- */
+.hero {
+  background: linear-gradient(135deg, #ffffff 0%, #f1f6fb 100%);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  margin-bottom: 30px;
+  border: 1px solid #e2eaf3;
+}
+
+.eventTypeBadge {
+  background: #e0e7ff;
+  color: #4338ca;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mainTitle {
+  color: #1e3a8a;
+  font-size: 2.2rem;
+  margin: 15px 0;
+  font-weight: 800;
+}
+
+.heroMetaGrid {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.metaItem {
+  color: #64748b;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.metaItem strong {
+  color: #334155;
+}
+
+/* --- Details Grid (Description & Stats) --- */
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.descriptionSection {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  border: 1px solid #f1f6fb;
+}
+
+.descriptionSection h3 {
+  color: #1e3a8a;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.descriptionSection p {
+  color: #4b5563;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.statsCard {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 20px;
+  border: 2px solid #edf4ff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.statsCard h3 {
+  color: #1e3a8a;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.statRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px dashed #e2eaf3;
+}
+
+.statRow:last-child {
+  border-bottom: none;
+}
+
+.statRow span {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.statRow strong {
+  color: #355f9a;
+  font-size: 1.1rem;
+}
+
+/* --- Gallery Section (Single Row) --- */
+.gallerySection {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.gallerySection h3 {
+  color: #1e3a8a;
+  margin-bottom: 20px;
+}
+
+.gallerySingleRow {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 15px;
+  scrollbar-width: thin;
+  scrollbar-color: #dbeafe transparent;
+}
+
+/* For Chrome/Safari */
+.gallerySingleRow::-webkit-scrollbar {
+  height: 6px;
+}
+.gallerySingleRow::-webkit-scrollbar-thumb {
+  background: #dbeafe;
+  border-radius: 10px;
+}
+
+.galleryImgWrapper {
+  flex: 0 0 280px; /* Fixed width */
+  height: 190px;   /* Fixed height */
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eef2f6;
+}
+
+.galleryImgUniform {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.galleryImgUniform:hover {
+  transform: scale(1.05);
+}
+
+.emptyState {
+  text-align: center;
+  padding: 40px;
+  color: #94a3b8;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 2px dashed #e2eaf3;
+}
+
+/* --- Filter Grid (Dropdowns) --- */
+.filterGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+  margin-bottom: 25px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 8px;
+  color: #5b7db1;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.formGroup select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dbeafe;
+  border-radius: 10px;
+  background-color: #f8fbff;
+  color: #4a6fa5;
+  outline: none;
+}
+
+/* --- Dual Box Selection (Districts/Blocks) --- */
+.dualBoxContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.box {
+  border: 1px solid #dbeafe;
+  border-radius: 15px;
+  height: 250px;
+  overflow-y: auto;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.box h4 {
+  background: #7fa1c3; /* Matching your buttons */
+  color: white;
+  padding: 12px;
+  margin: 0;
+  font-size: 0.9rem;
+  position: sticky;
+  top: 0;
+  text-align: center;
+}
+
+.box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.box li {
+  padding: 10px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #f1f6fb;
+  font-size: 0.9rem;
+  color: #4b5563;
+  transition: background 0.2s;
+}
+
+.box li:hover {
+  background: #edf4ff;
+  color: #355f9a;
+}
+
+/* --- Buttons --- */
+.primaryButton {
+  margin-top: 25px;
+  width: 100%;
+  padding: 14px;
+  background: #5b7db1;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.primaryButton:hover {
+  background: #4a6fa5;
+}
+
+.primaryButton:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
+
+/* --- Pretty Table --- */
+.studentListSection {
+  margin-top: 30px;
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+}
+/* --- Updated Table Selection & Marks --- */
+
+/* Make the Row turn blue when student is selected */
+.studentTable tr.selectedRow {
+  background-color: #eff6ff !important;
+}
+
+/* HIGH VISIBILITY CHECKBOX */
+.studentTable input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  accent-color: #2563eb; /* Strong Blue */
+  outline: 2px solid #cbd5e1;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.studentTable input[type="checkbox"]:checked {
+  outline: 2px solid #2563eb;
+  transform: scale(1.1);
+}
+
+/* --- Search Bar & Actions Enhancement --- */
+.tableActionsBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  background: #f8fafc;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.searchWrapper {
+  position: relative;
+  flex: 1;
+}
+
+.searchIconInside {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #64748b;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 12px 12px 12px 42px !important;
+  border: 2px solid #cbd5e1 !important;
+  border-radius: 10px !important;
+  font-size: 1rem;
+  background: white;
+  transition: border-color 0.2s;
+}
+
+.searchInput:focus {
+  border-color: #2563eb !important;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+/* --- Bulk Buttons --- */
+.bulkActions {
+  display: flex;
+  gap: 10px;
+}
+
+.bulkBtnCheck {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.bulkBtnCheck:hover {
+  background: #1d4ed8;
+}
+
+.bulkBtnUncheck {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.bulkBtnUncheck:hover {
+  background: #e2e8f0;
+}
+
+/* --- Student Table Header Colors --- */
+.studentTable th {
+  background: #1e3a8a; /* Deep blue header */
+  color: white;
+  padding: 18px 15px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.studentTable td {
+  padding: 15px;
+  font-weight: 500;
+  color: #1e293b;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+
+.studentTable th {
+  background: #f1f6fb;
+  color: #5b7db1;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+  border-bottom: 2px solid #dfeaf6;
+}
+
+.studentTable td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #f1f6fb;
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
+.studentTable tr:hover {
+  background: #fcfdfe;
+}
+
+
+/* --- Pagination Controls (Fixed Visibility) --- */
+.paginationControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 20px 0;
+  padding: 15px;
+  background: #edf4ff; /* Light blue instead of grey */
+  border-radius: 12px;
+}
+
+.pageBtn {
+  padding: 8px 20px;
+  border: 1px solid #5b7db1;
+  background: white;
+  color: #5b7db1; /* Text is now blue and visible */
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.pageBtn:hover:not(:disabled) {
+  background: #5b7db1;
+  color: white;
+}
+
+.pageBtn:disabled {
+  cursor: not-allowed;
+  border-color: #cbd5e1;
+  color: #cbd5e1;
+}
+
+.pageInfo {
+  font-weight: 600;
+  color: #355f9a;
+}
+
+/* --- Footer and Save Button --- */
+.tableFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid #f1f6fb;
+}
+
+.tableFooter span {
+  color: #5b7db1;
+  font-weight: 600;
+}
+
+.saveBtn {
+  padding: 12px 30px;
+  background: #059669; /* Keep the green for success/save */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.saveBtn:hover {
+  background: #047857;
+  transform: scale(1.02);
+}
+
+.uploadSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 25px;
+  padding: 20px;
+  background: #f1f6fb;
+  border-radius: 15px;
+}
+
+.uploadCard h4 {
+  color: #355f9a;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.fileHint {
+  font-size: 0.8rem;
+  color: #5b7db1;
+  margin-top: 5px;
+}
+
+/* Container for the single row */
+.gallerySingleRow {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto; /* Scroll horizontally if too many images */
+  padding: 10px 0;
+  flex-wrap: nowrap;
+}
+
+/* Image wrapper to force same size */
+.galleryImgWrapper {
+  flex: 0 0 250px; /* Fixed width */
+  height: 180px;   /* Fixed height */
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+/* The Image itself */
+.galleryImgUniform {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crops image to fit the box without stretching */
+  display: block;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    background: #fff;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.backButton {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    z-index: 10;
+}
+
+.backButton:hover {
+    background: #dc2626;
+}
+
+.inputReadOnly {
+    background-color: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    padding: 10px 12px;
+    border-radius: 6px;
+    color: #475569;
+    font-weight: 500;
+    width: 100%;
+    cursor: not-allowed;
+}
+
+.photoGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.photoContainer {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+.photoThumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photoOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.photoContainer:hover .photoOverlay {
+    opacity: 1;
+}
+
+.viewIconBtn {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.removeBtn {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Modals */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modalContent { position: relative; max-width: 90%; }
+.modalImg { max-width: 100%; max-height: 80vh; border-radius: 8px; }
+
+.modalClose {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: white;
+    border: none;
+    font-size: 24px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.pdfModalContent {
+    background: white;
+    width: 80%;
+    height: 85%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.pdfModalHeader {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.pdfCloseBtn {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+/* --- View Mode Enhancements --- */
+.descriptionText {
+  color: #4b5563;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 25px; /* Added spacing for description */
+}
+
+.heroMetaGrid {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+  flex-wrap: wrap; /* Keeps dates and location tidy */
+}
+
+/* --- Sammelan Report Section (View Mode) --- */
+.reportViewSection {
+  margin-top: 20px;
+  padding-top: 15px;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid #eef2f6;
+  margin: 20px 0;
+}
+
+.reportLinkWrapper {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  padding: 12px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  color: #3b82f6;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.reportLinkWrapper:hover {
+  background: #eff6ff;
+  border-color: #3b82f6;
+}
+
+/* --- Modal Red Cross Fixes (Only for Big View) --- */
+.modalClose {
+  position: absolute;
+  top: -55px;
+  right: 0;
+  background: #ef4444 !important; /* Forces Red Background */
+  color: white !important;        /* Forces White X */
+  border: none;
+  font-size: 2rem;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  line-height: 45px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.modalClose:hover {
+  background: #dc2626 !important;
+}
+
+.pdfCloseBtn {
+  background: #ef4444 !important; /* Red for PDF Cross */
+  color: white !important;
+  border: none;
+  font-size: 1.8rem;
+  padding: 0 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.pdfCloseBtn:hover {
+  background: #dc2626 !important;
+}
+
+/* Gallery Interactivity */
+.galleryImgWrapper {
+  cursor: pointer;
+}

@@ -1,0 +1,217 @@
+/* Container Box */
+.container {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid #f1f5f9;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Center layout properties for the headers text elements */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 28px;
+  gap: 6px;
+}
+
+.header h2 {
+  color: #1e3a8a;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* Table Card Wrapper Layout */
+.tableCard {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed; /* Explicit matrix cell width distribution rules */
+}
+
+/* Premium Tech Blue Header Styling */
+.table thead {
+  background: #2563eb; 
+}
+
+/* Centered Header Columns with crisp white readable text */
+.table th {
+  padding: 16px 20px;
+  text-align: center;
+  color: #ffffff; 
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #1d4ed8; 
+}
+
+/* Data Cells alignment styling layout */
+.table td {
+  padding: 16px 20px;
+  text-align: center;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+  font-size: 14px;
+  vertical-align: middle; /* Ensures text alignment remains vertically uniform */
+}
+
+/* Context styling modifiers for key metrics data cells */
+.userCell {
+  font-weight: 500;
+  color: #1e293b;
+}
+
+/* FIX: Handled cell structure via explicit layout nesting blocks */
+.solutionNameCell {
+  color: #0284c7 !important; 
+  font-weight: 500;
+}
+
+.cellFlexWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.fileIcon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.dateCell {
+  color: #64748b !important;
+}
+
+/* Row Hover State style matrix tracking */
+.tableRow {
+  transition: background-color 0.15s ease;
+}
+
+.table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Prevent bottom border edge lines bleed on the last element container list */
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Center utility wrappers */
+.center {
+  padding: 0 !important;
+}
+
+/* Loading state spinner architecture */
+.loadingState {
+  padding: 48px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Empty State Styling rules layout blocks */
+.emptyState {
+  padding: 56px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.emptyIcon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.emptyText {
+  font-size: 16px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 4px;
+}
+
+.emptySubtext {
+  margin: 0;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+/* --- ACTION BUTTON GROUPS --- */
+.actionGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.linkIcon {
+  cursor: pointer;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%; 
+  border: 1px solid transparent;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #0284c7; 
+  background: #f0f9ff; 
+  border-color: #e0f2fe;
+}
+
+/* View Action Interaction States */
+.linkIcon:hover {
+  color: #ffffff;
+  background: #0284c7; 
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+}
+
+.linkIcon:active {
+  transform: translateY(0) scale(0.95);
+}

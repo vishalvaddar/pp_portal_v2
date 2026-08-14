@@ -1,0 +1,123 @@
+.container { padding: 2rem; background-color: #f8fafc; min-height: 100vh; font-family: 'Inter', sans-serif; }
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+.title { font-size: 1.8rem; font-weight: 800; color: #0f172a; margin: 0; }
+.subtitle { color: #64748b; font-size: 0.9rem; font-weight: 500; }
+
+.progressCard { background: white; padding: 1.25rem; border-radius: 12px; width: 280px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+.progressInfo { display: flex; justify-content: space-between; margin-bottom: 0.6rem; }
+.progressLabel { font-size: 0.7rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; }
+.progressPercent { font-size: 1rem; font-weight: 800; color: #3b82f6; }
+.progressTrack { height: 8px; background: #f1f5f9; border-radius: 10px; }
+.progressFill { height: 100%; background: #3b82f6; border-radius: 10px; transition: width 0.8s ease; }
+
+.cardRow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 2rem; }
+.navCard { background: white; padding: 1.5rem; border-radius: 16px; display: flex; align-items: center; gap: 1rem; text-decoration: none; border: 1px solid #e2e8f0; transition: all 0.3s ease; }
+.navCard:hover { transform: translateY(-5px); border-color: #3b82f6; box-shadow: 0 12px 20px rgba(0,0,0,0.06); }
+.navIcon { padding: 12px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+.blueCard .navIcon { background: #eff6ff; color: #3b82f6; }
+.purpleCard .navIcon { background: #f5f3ff; color: #8b5cf6; }
+.orangeCard .navIcon { background: #fff7ed; color: #f97316; }
+.navTitle { font-size: 1.1rem; font-weight: 700; color: #1e293b; margin: 0; }
+.navDesc { font-size: 0.8rem; color: #64748b; margin: 2px 0 0 0; line-height: 1.4; }
+.navArrow { color: #cbd5e1; margin-left: auto; transition: transform 0.2s; }
+.navCard:hover .navArrow { transform: translateX(3px); color: #3b82f6; }
+
+/* BIG STATS TILES - ONE LINE, NO SCROLL */
+.statsGrid { 
+  display: flex; 
+  gap: 1rem; 
+  margin-bottom: 3rem; 
+  padding: 2px;
+}
+.statTile { 
+  flex: 1; 
+  background: white; 
+  padding: 1.75rem 1rem; 
+  border-radius: 16px; 
+  border: 1px solid #e2e8f0; 
+  text-align: center; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  transition: transform 0.2s;
+}
+.statTile:hover { transform: scale(1.02); border-color: #3b82f6; }
+.statValue { display: block; font-size: 2rem; font-weight: 800; color: #1e293b; line-height: 1; }
+.statName { font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin-top: 10px; letter-spacing: 0.5px; }
+
+/* JURISDICTION SECTION */
+.jurisdictionSection { margin-top: 2rem; }
+.sectionHeader { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; gap: 2rem; }
+
+.headerLeft { display: flex; align-items: center; gap: 3rem; flex: 1; }
+.titleWithCount { display: flex; align-items: center; gap: 0.8rem; white-space: nowrap; }
+.gridIcon { color: #3b82f6; }
+.sectionTitle { font-size: 1.3rem; font-weight: 700; color: #1e293b; margin: 0; }
+.totalBadge { background: #f1f5f9; color: #475569; padding: 4px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; border: 1px solid #e2e8f0; }
+
+/* NICE SEARCH BOX */
+.searchBox { position: relative; flex: 1; max-width: 450px; }
+.searchIcon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #94a3b8; transition: color 0.2s; }
+.searchInput { 
+  width: 100%; 
+  padding: 12px 20px 12px 48px; 
+  border-radius: 14px; 
+  border: 1px solid #e2e8f0; 
+  background: white;
+  font-size: 0.9rem; 
+  color: #1e293b;
+  outline: none; 
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+.searchInput::placeholder { color: #94a3b8; }
+.searchInput:focus { 
+  border-color: #3b82f6; 
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1); 
+  transform: translateY(-1px);
+}
+.searchBox:focus-within .searchIcon { color: #3b82f6; }
+
+/* PAGINATION */
+.pagination { display: flex; align-items: center; gap: 1rem; background: white; padding: 8px 16px; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+.pageBtn { padding: 6px; border-radius: 8px; border: 1px solid transparent; background: transparent; cursor: pointer; color: #64748b; display: flex; align-items: center; transition: all 0.2s; }
+.pageBtn:disabled { opacity: 0.2; cursor: not-allowed; }
+.pageBtn:not(:disabled):hover { background: #f1f5f9; color: #3b82f6; border-color: #e2e8f0; }
+.pageText { font-size: 0.85rem; font-weight: 700; color: #475569; min-width: 50px; text-align: center; }
+
+/* BOX GRID */
+.jurisGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.jurisBox { background: white; border-radius: 20px; padding: 1.5rem; border: 1px solid #e2e8f0; display: flex; flex-direction: column; transition: all 0.3s ease; }
+.jurisBox:hover { border-color: #3b82f6; box-shadow: 0 10px 25px rgba(0,0,0,0.04); transform: translateY(-4px); }
+
+.boxHeader { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+.boxTitle { font-size: 1.05rem; font-weight: 700; color: #1e293b; margin: 0; }
+.boxCode { font-size: 0.75rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; margin-top: 2px; }
+
+.boxBody { background: #f8fafc; border-radius: 12px; padding: 1.25rem; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; border: 1px solid #f1f5f9; }
+.countRow { display: flex; justify-content: space-between; font-size: 0.8rem; color: #64748b; font-weight: 500; }
+.countRow strong { color: #1e293b; font-weight: 700; }
+
+.boxFooter { display: flex; align-items: center; gap: 1rem; margin-top: auto; }
+.miniProgress { flex: 1; height: 8px; background: #f1f5f9; border-radius: 10px; overflow: hidden; }
+.miniFill { height: 100%; background: #3b82f6; border-radius: 10px; transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+.percentText { font-size: 0.9rem; font-weight: 800; color: #3b82f6; min-width: 40px; }
+
+/* HELPERS */
+.dangerText { color: #ef4444 !important; }
+.infoText { color: #3b82f6 !important; }
+.iconSuccess { color: #10b981; }
+.iconPending { color: #f59e0b; }
+.emptyState { grid-column: 1 / -1; padding: 6rem; text-align: center; color: #94a3b8; background: white; border-radius: 20px; border: 2px dashed #e2e8f0; }
+.loader { height: 60vh; display: flex; justify-content: center; align-items: center; color: #3b82f6; font-weight: 600; font-size: 1.1rem; }
+
+@media (max-width: 1550px) { .jurisGrid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 1200px) { 
+  .jurisGrid { grid-template-columns: repeat(2, 1fr); } 
+  .headerLeft { gap: 1.5rem; flex-direction: column; align-items: flex-start; }
+  .searchBox { max-width: 100%; width: 100%; }
+}
+@media (max-width: 768px) { 
+  .jurisGrid { grid-template-columns: 1fr; } 
+  .cardRow { grid-template-columns: 1fr; }
+  .statsGrid { flex-wrap: wrap; }
+  .statTile { flex: 1 1 45%; }
+}

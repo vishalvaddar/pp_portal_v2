@@ -1,0 +1,128 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.buttonPrimary {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.buttonSecondary {
+    padding: 10px 20px;
+    background-color: white;
+    color: #555;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.creationCard {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.dualBoxContainer {
+    display: flex;
+    gap: 20px;
+    height: 250px;
+    margin: 15px 0;
+}
+
+.boxColumn {
+    flex: 1;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    overflow: hidden;
+}
+
+.boxHeader {
+    background: #f8f9fa;
+    padding: 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-bottom: 1px solid #dee2e6;
+    text-transform: uppercase;
+}
+
+.boxContent { flex: 1; overflow-y: auto; padding: 8px; }
+
+.fieldItem {
+    padding: 8px 12px;
+    margin-bottom: 6px;
+    border: 1px solid #f0f0f0;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fieldItemSelected { background: #eefbff; border-color: #3498db; }
+
+.listsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.listCardItem {
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #e1e4e8;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardHeader { padding: 1.25rem; display: flex; justify-content: space-between; cursor: pointer; }
+
+.badge { background: #e9ecef; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; }
+
+.cardActions { background: #fafafa; padding: 10px 1.25rem; border-top: 1px solid #eee; display: flex; justify-content: space-between; }
+
+.modalOverlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex; justify-content: center; align-items: center; z-index: 1000;
+}
+
+.modalContentWide {
+    background: white; width: 95%; max-width: 600px; border-radius: 12px;
+    display: flex; flex-direction: column; max-height: 85vh;
+}
+
+.modalListItem {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px; margin-bottom: 8px; border-radius: 6px; cursor: pointer;
+}
+
+.selectedItem { background-color: #f0fff4 !important; }
+.unselectedItem { background-color: #fff5f5; }

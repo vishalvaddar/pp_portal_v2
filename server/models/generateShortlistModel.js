@@ -1,0 +1,256 @@
+const pool = require("../config/db"); 
+
+const GenerateShortlistModel = {
+ 
+  async getAllStates() { 
+    try {
+      const result = await pool.query(`
+        SELECT juris_code, juris_name
+        FROM pp.jurisdiction
+        WHERE LOWER(juris_type) = 'state';
+      `);
+      return result.rows;
+    } catch (error) {
+      console.error("GenerateShortlistModel.getAllStates - Error:", error);
+      throw error;
+    }
+  },
+
+  async getDivisionsByState(stateName) {
+    try {
+      const result = await pool.query(
+        `
+        SELECT juris_code, juris_name
+        FROM pp.jurisdiction AS division
+        WHERE division.parent_juris IN (
+          SELECT state.juris_code
+          FROM pp.jurisdiction AS state
+          WHERE LOWER(TRIM(state.juris_name)) = LOWER(TRIM($1))
+        )
+        AND LOWER(division.juris_type) = 'division';
+        `,
+        [stateName]
+      );
+      return result.rows;
+    } catch (error) {
+      console.error("GenerateShortlistModel.getDivisionsByState - Error:", error);
+      throw error;
+    }
+  },
+
+  async getDistrictsByDivision(divisionName) {
+    try {
+      const result = await pool.query(
+        `
+        SELECT juris_code, juris_name
+        FROM pp.jurisdiction AS district
+        WHERE district.parent_juris IN (
+          SELECT division.juris_code
+          FROM pp.jurisdiction AS division
+          WHERE LOWER(TRIM(division.juris_name)) = LOWER(TRIM($1))
+        )
+        AND LOWER(district.juris_type) = 'education district';
+        `,
+        [divisionName]
+      );
+      return result.rows;
+    } catch (error) {
+      console.error("GenerateShortlistModel.getDistrictsByDivision - Error:", error);
+      throw error;
+    }
+  },
+
+ async getBlocksByDistrict(stateName, divisionName, districtName, year) { 
+    try {
+      const result = await pool.query(
+        `
+        SELECT
+            j.juris_code,
+            j.juris_name,
+            CASE
+                WHEN j.juris_code IN (
+                    SELECT sbj.juris_code
+                    FROM pp.shortlist_batch_jurisdiction AS sbj
+                    JOIN pp.shortlist_batch AS sb 
+                        ON sbj.shortlist_batch_id = sb.shortlist_batch_id
+                    WHERE sb.frozen_yn = 'Y'
+                      AND sb.shortlisted_year = $4  -- 🔹 Dynamic Year Filter
+                )
+                THEN TRUE ELSE FALSE
+            END AS is_frozen_block
+        FROM pp.jurisdiction AS j
+        WHERE LOWER(j.juris_type) = 'block' 
+          AND j.parent_juris IN (
+                SELECT district.juris_code
+                FROM pp.jurisdiction AS district
+                WHERE LOWER(TRIM(district.juris_name)) = LOWER(TRIM($3))
+                  AND LOWER(district.juris_type) = 'education district'
+                  AND district.parent_juris IN ( 
+                        SELECT division.juris_code
+                        FROM pp.jurisdiction AS division
+                        WHERE LOWER(TRIM(division.juris_name)) = LOWER(TRIM($2))
+                          AND LOWER(division.juris_type) = 'division'
+                          AND division.parent_juris IN (
+                                SELECT state.juris_code
+                                FROM pp.jurisdiction AS state
+                                WHERE LOWER(TRIM(state.juris_name)) = LOWER(TRIM($1))
+                                  AND LOWER(state.juris_type) = 'state'
+                          )
+                  )
+          );
+        `,
+        [stateName, divisionName, districtName, year] 
+      );
+      return result.rows;
+    } catch (error) {
+      console.error("GenerateShortlistModel.getBlocksByDistrict - Error:", error);
+      throw error;
+    }
+  },
+
+ 
+  async getCriteria() {
+    try {
+      const result = await pool.query(`
+        SELECT criteria_id, criteria FROM pp.shortlist_criteria;
+      `);
+      return result.rows;
+    } catch (error) {
+      console.error("GenerateShortlistModel.getCriteria - Error:", error);
+      throw error;
+    }
+  },
+
+async createShortlistBatch(shortlistName, description, criteriaId, selectedBlocks, state, district, year, userId) {
+    let shortlistedCount = 0;
+    let shortlistBatchId = null;
+
+    try {
+        await pool.query("BEGIN");
+
+        const blockNamesToSearch = selectedBlocks.map((b) => b.toLowerCase().trim());
+        const checkExistingQuery = `
+            SELECT sb.shortlist_batch_name, block.juris_name
+            FROM pp.shortlist_batch_jurisdiction AS sbj
+            JOIN pp.jurisdiction AS block ON sbj.juris_code = block.juris_code
+            JOIN pp.shortlist_batch AS sb ON sbj.shortlist_batch_id = sb.shortlist_batch_id
+            WHERE LOWER(TRIM(block.juris_name)) = ANY($1) 
+              AND sb.shortlisted_year = $2 
+              AND sb.frozen_yn = 'N';
+        `;
+        const existing = await pool.query(checkExistingQuery, [blockNamesToSearch, year]);
+        
+        if (existing.rows.length > 0) {
+            throw new Error(`Shortlists already exist for these blocks in ${year}. Please delete them first.`);
+        }
+
+        // 2. Insert Batch (NO userId columns here because table doesn't have them)
+        const insertBatch = await pool.query(
+            `INSERT INTO pp.shortlist_batch (shortlist_batch_name, description, criteria_id, shortlisted_year)
+             VALUES ($1, $2, $3, $4) RETURNING shortlist_batch_id;`,
+            [shortlistName, description, criteriaId, year]
+        );
+        shortlistBatchId = insertBatch.rows[0].shortlist_batch_id;
+
+        await pool.query(
+            `INSERT INTO pp.shortlist_batch_jurisdiction (shortlist_batch_id, juris_code)
+             SELECT $1, juris_code FROM pp.jurisdiction
+             WHERE LOWER(TRIM(juris_name)) = ANY($2) AND LOWER(juris_type) = 'block';`,
+            [shortlistBatchId, blockNamesToSearch]
+        );
+
+        const criteriaRes = await pool.query(`SELECT criteria FROM pp.shortlist_criteria WHERE criteria_id = $1`, [criteriaId]);
+        const procCriteria = criteriaRes.rows[0].criteria.toLowerCase();
+
+        let threshold = 0;
+        if (procCriteria.includes("top 4%")) threshold = 0.04;
+        else if (procCriteria.includes("top 6%")) threshold = 0.06;
+        else if (procCriteria.includes("top 8%")) threshold = 0.08;
+
+        if (threshold > 0) {
+            const query = `
+                WITH ApplicantRanked AS (
+                    SELECT 
+                        applicant_id, 
+                        app_state, 
+                        district, 
+                        nmms_block AS block,
+                        (gmat_score * 0.7 + sat_score * 0.3) AS weighted_score,
+                        PERCENT_RANK() OVER (
+                            PARTITION BY nmms_block 
+                            ORDER BY (gmat_score * 0.7 + sat_score * 0.3) DESC, applicant_id ASC
+                        ) AS percentile_rank
+                    FROM pp.applicant_primary_info 
+                    WHERE nmms_year = $4
+                )
+                SELECT 
+                    ar.applicant_id
+                FROM ApplicantRanked ar
+                JOIN pp.jurisdiction sj ON ar.app_state = sj.juris_code
+                JOIN pp.jurisdiction dj ON ar.district = dj.juris_code
+                JOIN pp.jurisdiction bj ON ar.block = bj.juris_code
+                WHERE LOWER(TRIM(sj.juris_name)) = LOWER(TRIM($1))
+                  AND LOWER(TRIM(dj.juris_name)) = LOWER(TRIM($2))
+                  AND LOWER(TRIM(bj.juris_name)) = LOWER(TRIM($3))
+                  AND ar.percentile_rank <= ${threshold}
+                ORDER BY ar.weighted_score DESC;
+            `;
+
+            let applicantIds = [];
+            for (const block of blockNamesToSearch) {
+                const res = await pool.query(query, [state, district, block, year]);
+                res.rows.forEach(r => applicantIds.push(r.applicant_id));
+            }
+
+            shortlistedCount = applicantIds.length;
+            if (shortlistedCount > 0) {
+                let vals = [], params = [], counter = 1;
+                for (const id of applicantIds) {
+                    // 👈 Update here: added created_by/updated_by for applicant_shortlist_info table
+                    vals.push(`($${counter++}, 'Y', $${counter++}, $${counter++}, $${counter++})`);
+                    params.push(id, shortlistBatchId, userId, userId);
+                }
+                await pool.query(`INSERT INTO pp.applicant_shortlist_info (applicant_id, shortlisted_yn, shortlist_batch_id, created_by, updated_by) VALUES ${vals.join(', ')}`, params);
+            }
+        } else {
+            throw new Error(`Criteria "${procCriteria}" logic not implemented.`);
+        }
+
+        await pool.query("COMMIT");
+        return { shortlistBatchId, shortlistedCount };
+    } catch (e) {
+        await pool.query("ROLLBACK");
+        throw e;
+    }
+},
+
+
+  async getShortlistedCountForBlocksAndYear(blockNames, year) {
+    try {
+      const result = await pool.query(
+        `
+        SELECT COUNT(asi.applicant_id)
+        FROM pp.applicant_shortlist_info asi
+        WHERE asi.shortlisted_yn = 'Y' -- Only count explicitly shortlisted
+          AND asi.applicant_id IN (
+            SELECT api.applicant_id
+            FROM pp.applicant_primary_info api
+            WHERE api.nmms_year = $2
+              AND api.nmms_block IN (
+                SELECT j.juris_code
+                FROM pp.jurisdiction j
+                WHERE LOWER(TRIM(j.juris_name)) = ANY($1) AND LOWER(j.juris_type) = 'block'
+              )
+          );
+        `,
+        [blockNames.map(name => name.toLowerCase().trim()), year]
+      );
+      return result.rows[0].count;
+    } catch (error) {
+      console.error("GenerateShortlistModel.getShortlistedCountForBlocksAndYear - Error:", error);
+      throw error;
+    }
+  }
+};
+
+module.exports = GenerateShortlistModel;

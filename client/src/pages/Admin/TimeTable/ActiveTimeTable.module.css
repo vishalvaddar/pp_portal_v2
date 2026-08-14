@@ -1,0 +1,237 @@
+.dashboardWrapper {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f1f5f9;
+}
+
+.managementSidebar {
+  width: 240px;
+  background: white;
+  padding: 24px;
+  border-right: 1px solid #e2e8f0;
+}
+
+.sidebarTitle {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.actionBtn {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: #ffffff;
+  color: #1e293b;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+}
+
+.actionBtn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.actionBtnSkills {
+  width: 100%;
+  padding: 12px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ttContainer { flex: 1; padding: 32px; }
+
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.title { color: #1e293b; margin: 0; }
+.exportSection { display: flex; gap: 8px; }
+
+.downloadBtnPdf, .downloadBtnXls {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+}
+.downloadBtnPdf { background: #000000; }
+.downloadBtnXls { background: #16a34a; }
+
+.segmentControl {
+  background: #e2e8f0;
+  padding: 4px;
+  border-radius: 10px;
+  display: inline-flex;
+  margin-bottom: 24px;
+}
+
+.tab {
+  padding: 8px 20px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 600;
+  color: #64748b;
+  border-radius: 8px;
+}
+
+.tab.active {
+  background: white;
+  color: #2563eb;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.filterBar { display: flex; gap: 12px; margin-bottom: 24px; }
+
+.filterBar select {
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  min-width: 200px;
+}
+
+.loadBtn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 0 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.matrixContainer {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.matrixRow { display: flex; }
+
+
+.weekSeparator {
+  height: 2px; /* Thinner line as requested */
+  background: #cbd5e1; /* Subtle grey line */
+  width: 100%;
+}
+
+/* Ensure Day Header is readable if used in Matrix */
+.dayColumn {
+  width: 140px;
+  background: #f8fafc;
+  padding: 20px;
+  font-weight: 700;
+  color: #475569; /* Dark grey instead of black for better readability */
+  border-right: 1px solid #f1f5f9;
+}
+
+.slotsColumn { flex: 1; padding: 16px; display: flex; flex-wrap: wrap; gap: 12px; }
+
+.matrixCard {
+  background: #f0f9ff;
+  border-left: 4px solid #3b82f6;
+  padding: 12px;
+  border-radius: 8px;
+  min-width: 200px;
+}
+
+.cardTime { font-size: 12px; font-weight: 700; color: #2563eb; margin-bottom: 4px; }
+.cardSubject { font-weight: 700; color: #1e293b; }
+.cardMeta { font-size: 12px; color: #64748b; margin-top: 4px; }
+
+
+.modalOverlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 23, 42, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  backdrop-filter: blur(4px);
+}
+
+.modalContentWide {
+  background: white;
+  border-radius: 16px;
+  width: 650px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.closeIcon { background: none; border: none; font-size: 32px; color: #94a3b8; cursor: pointer; }
+
+.modalBody { padding: 24px; }
+
+.skillSelect {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.addSkillBox {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 24px;
+}
+
+.addSkillBox h4 { margin-top: 0; font-size: 12px; color: #94a3b8; text-transform: uppercase; margin-bottom: 16px; }
+
+.addSkillRow { display: flex; gap: 12px; }
+
+.addSkillRow select { flex: 1; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px; }
+
+.addBtn {
+  background: #2563eb; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer;
+}
+
+.skillsListContainer h4 { font-size: 12px; color: #94a3b8; text-transform: uppercase; margin-bottom: 16px; }
+
+.skillsList { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.skillItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+.skillSubject { display: block; font-weight: 700; color: #1e293b; }
+.skillMedium { font-size: 12px; color: #64748b; }
+
+.deleteBtn {
+  background: #fee2e2; color: #ef4444; border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 20px;
+}
+
+.selectionArea { margin-bottom: 24px; }
+.selectionArea label { display: block; margin-bottom: 8px; font-weight: 600; color: #475569; }
+
+.noData { grid-column: span 2; text-align: center; color: #94a3b8; padding: 20px; }

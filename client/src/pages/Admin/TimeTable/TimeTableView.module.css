@@ -1,0 +1,529 @@
+:local {
+  --bg-main: #f4f6fa;
+  --panel-solid: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --brand-primary: #4f46e5;
+  --brand-success: #10b981;
+  --border-light: #e2e8f0;
+  
+  /* Card Specifc Modern Variables */
+  --card-bg: #ffffff; 
+  --card-border: #e2e8f0;
+  --card-accent-border: #3b82f6; /* Subtle left border indicator for cards */
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -1px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 10px 25px -5px rgba(15, 23, 42, 0.03), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
+}
+
+.mainContainer {
+  padding: 32px;
+  background-color: var(--bg-main);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   HEADER BAR
+   ========================================================================== */
+
+.summaryBar {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 18px 24px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: flex-start; /* Aligns contents neatly */
+  align-items: center;
+  box-shadow: var(--shadow-md);
+  gap: 12px; /* Uniform spacing between text group and trailing buttons */
+}
+
+.summaryLeft {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
+  color: #94a3b8;
+  font-weight: 500;
+  margin-right: auto; /* Pushes all subsequent .summaryRight blocks to the far right */
+}
+
+.summaryLeft span {
+  display: flex;
+  align-items: center;
+}
+
+.statusBadge {
+  background: rgba(99, 102, 241, 0.2);
+  color: #818cf8;
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.summaryRight {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Base interactive architecture for your actions layout row */
+.saveBtn {
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Room for the CSS icons injected below */
+}
+
+.saveBtn:hover {
+  transform: translateY(-1px);
+}
+
+/* --- BUTTON 1: SAVE (Royal Indigo Blueprint Accent) --- */
+.summaryRight:nth-of-type(1) .saveBtn {
+  background: #4f46e5;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
+}
+.summaryRight:nth-of-type(1) .saveBtn:hover {
+  background: #4338ca;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+}
+/* Injects a diskette / floppy saving symbol */
+.summaryRight:nth-of-type(1) .saveBtn::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-color: currentColor;
+  mask: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z'/%3E%3Cpolyline points='17 21 17 13 7 13 7 21'/%3E%3Cpolyline points='7 3 7 8 15 8'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+/* --- BUTTON 2: GLOBAL (Emerald Green Action Accent) --- */
+.summaryRight:nth-of-type(2) .btnCls {
+  background: #10b981;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25);
+}
+.summaryRight:nth-of-type(2) .btnCls:hover {
+  background: #059669;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+/* Injects an internationalization / globe network wireframe symbol */
+.summaryRight:nth-of-type(2) .btnCls::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-color: currentColor;
+  mask: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3Cpath d='M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+/* --- BUTTON 3: ALL BATCHES (Warm Safety Orange Accent) --- */
+.summaryRight:nth-of-type(3) .btnCls {
+  background: #f97316;
+  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.25);
+}
+.summaryRight:nth-of-type(3) .btnCls:hover {
+  background: #ea580c;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+}
+/* Injects a standard data downstream compilation arrow symbol */
+.summaryRight:nth-of-type(3) .btnCls::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-color: currentColor;
+  mask: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+/* --- BUTTON 4: ALL TEACHERS (Amethyst Deep Purple Accent) --- */
+.summaryRight:nth-of-type(4) .btnCls {
+  background: #8b5cf6;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.25);
+}
+.summaryRight:nth-of-type(4) .btnCls:hover {
+  background: #7c3aed;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+}
+/* Injects a standard data downstream compilation arrow symbol matching the design intent */
+.summaryRight:nth-of-type(4) .btnCls::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-color: currentColor;
+  mask: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+/* ==========================================================================
+   HEADER BAR LABELS & BADGES
+   ========================================================================== */
+.summaryLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-right: auto;
+}
+
+/* Base structural layout for data pills */
+.allocatedBadge, .costBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+/* Make the dynamic numbers pop cleanly */
+.allocatedBadge strong, .costBadge strong {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* --- ALLOCATED CLASSES BADGE (Fresh Mint/Emerald Theme) --- */
+.allocatedBadge {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #a7f3d0; /* Soft mint text for the label description */
+}
+
+.allocatedBadge strong {
+  color: #10b981; /* High-contrast emerald green for the actual number */
+}
+
+/* --- WEEKLY COST BADGE (Warm Gold/Amber Theme) --- */
+.costBadge {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  color: #fde68a; /* Soft gold text for the label description */
+}
+
+.costBadge strong {
+  color: #fbbf24; /* High-contrast amber yellow for the actual amount */
+}
+
+/* ==========================================================================
+   CONTROL CONTROLS
+   ========================================================================== */
+.controlBar {
+  background: var(--panel-solid);
+  border-radius: 16px;
+  padding: 14px 20px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  gap: 16px;
+}
+
+.viewTabs {
+  display: flex;
+  gap: 4px;
+  background: #f1f5f9;
+  padding: 4px;
+  border-radius: 12px;
+}
+
+.viewTab, .activeViewTab {
+  border: none;
+  padding: 8px 18px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.viewTab {
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.viewTab:hover {
+  color: var(--text-main);
+  background: #e2e8f0;
+}
+
+.activeViewTab {
+  background: var(--panel-solid);
+  color: var(--brand-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* DROPDOWN CONFIG */
+.dropdown {
+  min-width: 220px;
+  padding: 10px 14px;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  background-color: var(--panel-solid);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 14px;
+  padding-right: 36px;
+  box-shadow: var(--shadow-sm);
+}
+
+.dropdown:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+/* ==========================================================================
+   THE TIMETABLE GRID MATRIX
+   ========================================================================== */
+.tableCard {
+  background: var(--panel-solid);
+  border-radius: 16px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+}
+
+/* NEW: PREMIUM DARK TABLE HEADER ROW */
+.table th {
+  background: linear-gradient(180deg, #1e293b, #0f172a);
+  padding: 18px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #f8fafc;
+  text-align: center;
+  border-bottom: 1px solid #334155;
+  border-right: 1px solid #334155;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  letter-spacing: 0.03em;
+}
+
+/* NEW: STICKY CORNER DAY HEADER */
+.dayHeader {
+  width: 100px;
+  background: linear-gradient(180deg, #0f172a, #020617) !important;
+  color: #ffffff !important;
+  left: 0;
+  z-index: 20 !important;
+  border-right: 2px solid #1e293b !important;
+}
+
+.slotHeader {
+  min-width: 170px;
+}
+
+.slotTime {
+  font-size: 11px;
+  font-weight: 500;
+  color: #94a3b8; /* Lighter text color to contrast cleanly with dark headers */
+  margin-top: 4px;
+}
+
+/* GRID ROWS & CELLS */
+.tableRow:hover td {
+  background-color: #f8fafc;
+}
+
+.table td {
+  padding: 12px 10px;
+  vertical-align: top;
+  border-right: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  background: var(--panel-solid);
+  transition: background-color 0.15s ease;
+}
+
+/* STICKY SIDE DAY PANEL */
+.dayCell {
+  position: sticky;
+  left: 0;
+  background: #f1f5f9 !important;
+  z-index: 5;
+  text-align: center;
+  vertical-align: middle !important;
+  font-weight: 700;
+  border-right: 2px solid var(--border-light) !important;
+  box-shadow: 4px 0 10px -4px rgba(15, 23, 42, 0.08);
+  font-size: 13px;
+  color: var(--text-main);
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   IMPROVED ASSIGNMENT CARDS (HIGHER CONTRAST + FLOATING DEPTH)
+   ========================================================================== */
+.assignmentCard {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  
+  /* Adds a premium vertical accent tag line on the left edge of each card */
+  border-left: 4px solid var(--brand-primary); 
+  
+  border-radius: 8px;
+  padding: 10px 12px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 8px;
+}
+
+.assignmentCard:last-child {
+  margin-bottom: 0;
+}
+
+/* High-fidelity card elevation hover effect */
+.assignmentCard:hover {
+  transform: translateY(-2px) scale(1.01);
+  border-color: #cbd5e1;
+  border-left-color: #1d4ed8; /* Darkens left accent marker on hover */
+  box-shadow: 0 8px 16px -4px rgba(15, 23, 42, 0.1), 0 4px 6px -2px rgba(15, 23, 42, 0.05);
+}
+
+.subjectBadge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: #eef2ff;
+  color: #3730a3;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+.teacherName {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Adaptive styles accommodating both variable types safely */
+.batchTag, .batchName {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  background: #f8fafc;
+  color: #475569;
+  padding: 3px 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+}
+
+/* EMPTY BLANK CELL */
+.freeCell {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 16px 0;
+  user-select: none;
+  font-style: normal;
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT RESPONSES
+   ========================================================================== */
+@media (max-width: 900px) {
+  .mainContainer {
+    padding: 16px;
+  }
+  .controlBar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .dropdown {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* ==========================================================================
+   FOCUS TARGET SELECTION BOX
+   ========================================================================== */
+.focusBox {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px; /* Spacing between the label and the select element */
+  background: #f8fafc; /* Subtle contrasting background tint */
+  padding: 6px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+}
+
+.focusLabel {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap; /* Prevents the text from wrapping onto two lines */
+}
+
+/* Ensure the dropdown within this box fits seamlessly */
+.focusBox .dropdown {
+  min-width: 180px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  box-shadow: none;
+  background-color: var(--panel-solid);
+}
+
+.backButton {
+  background-color: #4f46e5;
+  color: #f8f9fa;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 15px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease-in-out;
+}
+
+.backButton:hover {
+  background-color: #f8f9fa;
+  border-color: #adb5bd;
+  color: #212529;
+}

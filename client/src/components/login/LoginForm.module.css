@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --primary-color: #0d47a1;
+  --secondary-color: #64748b;
+  --error-color: #dc3545;
+  --background-color: #f8f9fa;
+  --header-bg: #1e293b;
+  --border-radius: 8px;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------------- Page Background ---------------- */
+.pageBackground {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  padding: 1.5rem;
+}
+
+/* ---------------- Main Card ---------------- */
+.loginCard {
+  width: 100%;
+  max-width: 950px;
+  height: 620px;
+  display: flex;
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: none;
+}
+
+/* ---------------- Header Section (Left Side) ---------------- */
+.headerSection {
+  width: 45%;
+  background: var(--header-bg);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  text-align: center;
+  padding: 5px;
+}
+
+.logoCircle {
+  width: 450px;
+  height: 300px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.logoImage {
+  width: 93%;
+  height: 203%;
+  border-top-left-radius: 1.2rem;
+  border-bottom-left-radius: 1.2rem;
+}
+
+.orgTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  line-height: 1.4;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.imasTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 6px;
+  margin: 0;
+  color: #fff;
+}
+
+/* ---------------- Form Section (Right Side) ---------------- */
+.formSection {
+  width: 55%;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  background: #b6bab9;
+}
+
+.formStack {
+  max-width: 360px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ---------------- Inputs ---------------- */
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #374151;
+}
+
+.inputContainer {
+  position: relative;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: #9ca3af;
+  z-index: 10;
+}
+
+.inputField {
+  width: 100% !important;
+  height: 48px !important;
+  padding-left: 44px !important;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #fcfcfc;
+  transition: all 0.2s ease;
+}
+
+.inputField:focus {
+  border-color: var(--primary-color);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(13, 71, 161, 0.1);
+  outline: none;
+}
+
+/* ---------------- CAPTCHA ---------------- */
+.captchaRow {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.captchaCanvas {
+  flex: 1;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  cursor: pointer;
+  background: #f3f4f6;
+}
+
+.refreshBtn {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+.refreshBtn:hover {
+  background: #e5e7eb;
+}
+
+.refreshBtn svg {
+  width: 20px;
+  height: 20px;
+  color: #4b5563;
+}
+
+/* ---------------- Buttons ---------------- */
+.continueButton {
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  background: var(--primary-color);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: opacity 0.2s, transform 0.1s;
+  margin-top: 10px;
+}
+
+.continueButton:hover:not(:disabled) {
+  opacity: 0.95;
+}
+
+.continueButton:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.continueButton:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* Spinner */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------------- Roles (Step 2) ---------------- */
+.roleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.roleCard {
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: #4b5563;
+  transition: all 0.2s;
+}
+
+.roleCard:hover {
+  border-color: var(--primary-color);
+  background: #f8fafc;
+}
+
+.activeRole {
+  border-color: var(--primary-color);
+  background: #eff6ff;
+  color: var(--primary-color);
+  font-weight: 600;
+  box-shadow: 0 0 0 1px var(--primary-color);
+}
+
+.hiddenRadio {
+  display: none;
+}
+
+/* ---------------- Miscellaneous ---------------- */
+.errorBanner {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fee2e2;
+  padding: 12px;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.textLink {
+  background: none;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #6b7280;
+  cursor: pointer;
+  margin-top: 15px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.textLink:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.footerText {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 900px) {
+  .loginCard {
+    flex-direction: column;
+    height: auto;
+    max-width: 420px;
+    border-radius: 16px;
+  }
+
+  .headerSection {
+    width: 100%;
+    padding: 30px 20px;
+  }
+  
+  .orgTitle {
+    margin-bottom: 20px;
+  }
+
+  .formSection {
+    width: 100%;
+    padding: 40px 24px;
+  }
+
+  .footerText {
+    position: static;
+    margin-top: 40px;
+    padding-bottom: 20px;
+  }
+}

@@ -1,0 +1,475 @@
+/* Batches.module.css */
+
+/* =================================
+   BASE & CONTAINER STYLES
+   ================================= */
+.container {
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  color: #343a40;
+}
+
+/* =================================
+   HEADER & CONTROLS
+   ================================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #212529;
+  margin: 0;
+}
+
+.headerActions {
+  display: flex;
+  gap: 1rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sortSelect {
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #ced4da;
+  background-color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* =================================
+   BUTTONS
+   ================================= */
+.addbtn, .secondaryBtn, .saveBtn, .cancelBtn, .dangerBtn, .actionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.addbtn {
+  background-color: #007bff;
+  color: white;
+}
+.addbtn:hover {
+  background-color: #0069d9;
+}
+
+.secondaryBtn {
+  background-color: #6c757d;
+  color: white;
+}
+.secondaryBtn:hover {
+  background-color: #5a6268;
+}
+
+.saveBtn {
+  background-color: #28a745;
+  color: white;
+}
+.saveBtn:hover {
+  background-color: #218838;
+}
+
+.dangerBtn {
+  background-color: #dc3545;
+  color: white;
+}
+.dangerBtn:hover {
+  background-color: #c82333;
+}
+
+.cancelBtn {
+  background-color: #e9ecef;
+  color: #495057;
+  border: 1px solid #ced4da;
+}
+.cancelBtn:hover {
+  background-color: #dee2e6;
+}
+
+.actionBtn {
+  padding: 0.5rem;
+  background-color: #f1f3f5;
+  color: #495057;
+}
+.actionBtn:hover {
+  background-color: #e9ecef;
+}
+
+.dangerBtnIcon {
+  color: #dc3545;
+}
+.dangerBtnIcon:hover {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* =================================
+   CARD GRID & CARD STYLES
+   ================================= */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.cardTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0;
+  color: #343a40;
+}
+
+.cardBody {
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+  color: #6c757d;
+}
+
+.cardBody p {
+  margin: 0.5rem 0;
+}
+
+.cardActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  border-top: 1px solid #e9ecef;
+  padding-top: 1rem;
+  margin-top: auto;
+}
+
+/* =================================
+   STATUS BADGE
+   ================================= */
+.statusBadge {
+  padding: 0.3rem 0.7rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.active {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.inactive {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* =================================
+   MODAL STYLES
+   ================================= */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal {
+  background-color: white;
+  padding: 1.8rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 500px;
+  /* max-height: 90vh; */
+  overflow-y: auto;
+  animation: slide-down 0.3s ease-out;
+}
+
+.modal h3 {
+  margin-top: 0;
+  font-size: 1.75rem;
+  color: #343a40;
+}
+
+.confirmMessage {
+  margin: 1rem 0 2rem;
+  line-height: 1.6;
+}
+
+.modalContent {
+  max-width: 1000px;
+  margin: 0.5rem auto;
+  padding: 1.rem;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6c757d;
+  padding: 0;
+}
+.closeButton:hover {
+  color: #343a40;
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =================================
+   FORM STYLES
+   ================================= */
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #495057;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f8f9fa;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  background-color: #fff;
+}
+
+.errorText {
+  color: #dc3545;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.errorInput {
+  border-color: #dc3545 !important;
+}
+
+/* React Select Custom Styles */
+:global(.react-select__control) {
+  border-radius: 8px !important;
+  padding: 0.2rem !important;
+  border-color: #ced4da !important;
+}
+:global(.react-select__control--is-focused) {
+  border-color: #80bdff !important;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+}
+:global(.react-select-error .react-select__control) {
+  border-color: #dc3545 !important;
+}
+
+/* =================================
+   NOTIFICATION STYLES
+   ================================= */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  z-index: 2000;
+  animation: fade-in 0.5s;
+}
+
+.notification p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.notification.success {
+  background-color: #d4edda;
+  color: #155724;
+  border-left: 5px solid #28a745;
+}
+
+.notification.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-left: 5px solid #dc3545;
+}
+
+.dismissButton {
+  background: none;
+  border: none;
+  color: inherit;
+  margin-left: 1rem;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.dismissButton:hover {
+  opacity: 1;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =================================
+   STUDENT LIST MODAL & TABLE
+   ================================= */
+.studentListModal {
+  max-width: 90%;
+  width: 1200px;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.studentListContent {
+  margin: 1.5rem 0;
+}
+
+.noStudents {
+  text-align: center;
+  padding: 2rem;
+  font-style: italic;
+  color: #6c757d;
+}
+
+.studentTableContainer {
+  overflow-x: auto;
+  max-height: 60vh;
+}
+
+.studentTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.studentTable th, .studentTable td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+  white-space: nowrap;
+}
+
+.studentTable thead {
+  background-color: #f8f9fa;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.studentTable th {
+  font-weight: 600;
+  color: #495057;
+}
+
+.studentTable tbody tr:hover {
+  background-color: #f1f3f5;
+}
+
+/* =================================
+   RESPONSIVENESS
+   ================================= */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .modal {
+    padding: 1.5rem;
+  }
+}

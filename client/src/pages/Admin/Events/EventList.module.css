@@ -1,0 +1,172 @@
+.container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tableWrapper {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08),
+              0 4px 12px rgba(0, 0, 0, 0.05);
+  background: white;
+  border: 1px solid #e5e7eb;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  color: #1f2937;
+}
+
+.th {
+  background: #f8fafc;
+  color: #4b5563;
+  font-weight: 600;
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  border-bottom: 2px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+.thActions {
+  text-align: right;
+}
+
+.row {
+  transition: background-color 0.12s ease;
+}
+
+.row:hover {
+  background-color: #f9fafb;
+}
+
+.cell {
+  padding: 14px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.eventTitle {
+  font-weight: 500;
+  color: #111827;
+  margin-bottom: 2px;
+}
+
+.eventSubtitle {
+  font-size: 0.8125rem;
+  color: #6b7280;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.badgeDefault          { background: #e5e7eb; color: #4b5563; }
+.badgeWorkshop         { background: #dbeafe; color: #1d4ed8; }
+.badgeSeminar          { background: #d1fae5; color: #065f46; }
+.badgeConference       { background: #fee2e2; color: #991b1b; }
+.badgeMeeting          { background: #fef3c7; color: #92400e; }
+.badgeTraining         { background: #ede9fe; color: #5b21b6; }
+.badgeOrientation      { background: #cffafe; color: #0e7490; }
+
+.numberCell {
+  font-weight: 600;
+  color: #374151;
+  text-align: center;
+}
+
+.actionsCell {
+  text-align: right;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.13s ease;
+  border: none;
+}
+
+.btnView {
+  background: #3b82f6;
+  color: white !important;      /* White text */
+  text-decoration: none !important; /* Removes the underline */
+  padding: 6px 16px;            /* Gives it the box shape */
+  border-radius: 6px;           /* Rounded corners */
+  display: inline-flex;         /* Ensures padding works correctly */
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.btnView:hover {
+  background: #2563eb;          /* Darker blue on hover */
+  text-decoration: none !important; /* Keep underline off on hover */
+  color: white !important;
+}
+
+.btnDelete {
+  background: #ef4444;
+  color: white;
+}
+
+.btnDelete:hover {
+  background: #dc2626;
+}
+
+/* Empty state */
+.emptyState {
+  padding: 60px 20px;
+  text-align: center;
+  color: #6b7280;
+  background: #f9fafb;
+  border-radius: 12px;
+  border: 1px dashed #d1d5db;
+}
+
+.emptyTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.emptySubtitle {
+  font-size: 0.95rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .table {
+    font-size: 0.9rem;
+  }
+  
+  .th, .cell {
+    padding: 12px 10px;
+  }
+  
+  .actionButtons {
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-end;
+  }
+}
